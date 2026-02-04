@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    h2{
+       display: flex;
+       flex-direction: column;
+       align-items: center; 
+    }
+    div{
+        width: 80%;
+        background: linear-gradient(135deg, hsl(0, 0%, 100%), #ffffff);
+        padding: 8px;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: floralwhite;;
+      color: #111111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    input {
+      width: 98%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #000000;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    textarea {
+      width: 98%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #000000;
+      border-radius: 5px;
+      font-size: 16px;
+      resize: vertical;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #000000;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    button{
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #000000;
+      border-radius: 5px;
+      background-color: #000;
+      color: #ffffff;
+    }
+
+</style>
+<body>
+<div class="login-container">
+    <h2>Cadastro</h2>
+    ID:<input id="id" type="number" placeholder="ID"><br>
+    Produto:<input id="Produto" type="text" placeholder="Produto"><br>
+    Preço:<input id="Preço" type="number" placeholder="Preço"><br>
+    Descrição:<textarea id="Descrição" placeholder="Descrição"></textarea><br>
+    Imagem:
+    <input type="file" accept="Imagem/*"><br>
+    Categoria:
+    <select id="Categoria"></select><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="resultado"></div>
+</div>
+</body>
+</html>
