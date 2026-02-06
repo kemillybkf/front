@@ -1,0 +1,90 @@
+:root{
+    --Verde: #1db954;
+    --cinza-dark: #121212;
+    --cinza-light: #1e1e1e;
+    --branco: #ffffff;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cinza-dark);
+    color: var(--branco);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    max-width: 1200px;
+    margin: 0% auto;
+    padding: 1rem;
+}
+.header{
+    background-color: var(--cinza-light);
+    border-bottom: 2px solid var(--Verde);
+}
+.pesquisa-button img{
+    width: 18px;
+    height: 18px;
+}
+.header-conteudo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo {
+    font-size: 1.8rem;
+}
+.logo span {
+    color: var(--Verde);
+}
+.menu {
+    display: flex;
+    gap: 1rem;
+}
+.menu a {
+    text-decoration: none;
+    color: var(--branco);
+    transition: 0.3s;
+}
+.menu a:hover{
+    color: var(--Verde);
+}
+.pesquisa-section{
+    margin: 2rem 0;
+}
+.pesquisa-conteudo{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.pesquisa-conteudo input{
+    width: 60%;
+    padding: 0.7rem;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+.pesquisa-button{
+    background-color: var(--Verde);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+.pesquisa-button:hover{
+    transform: scale(1.1);
+}
+.footer{
+    margin-top: auto;
+    background-color: var(--cinza-light);
+    text-align: center;
+    padding: 1rem;
+    border-top: 2px solid var(--Verde);
+    font-size: 0.8rem;
+}
