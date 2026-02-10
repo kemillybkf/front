@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Filmes</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"defer></script>
 </head>
 <body>
   <header class="header">
@@ -20,11 +21,14 @@
     <main>
         <section class="pesquisa-section">
             <div class="container pesquisa-conteudo">
-                <input type="text" placeholder="Pesquisar">
-                <button class="pesquisa-button">
+                <input type="text" id="campoPesquisa" placeholder="Pesquisar por filme">
+                <button class="pesquisa-button" id="botaoPesquisa">
                     <img src="assets/icones/lupa.jpg" alt="Pesquisar">
                 </button>
             </div>
+        </section>
+        <section class="exibirFilmes-section">
+            <div id="filmesGrid"></div>
         </section>
     </main>
     <footer class="footer">
