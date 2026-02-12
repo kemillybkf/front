@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root{
     --Verde: #ffffff;
     --cinza-dark: #121212;
-    --cinza-light: #863c3c;
+    --cinza-light: #252020;
     --branco: #ffffff;
 }
+@media (max-weight: 400px){
+    body{
+        font-family: "Playwite CU Guides", cursive;
+    }
+}
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: "Work Sans", sans-serif;
     background-color: var(--cinza-dark);
     color: var(--branco);
     min-height: 100vh;
@@ -87,4 +94,45 @@ body{
     padding: 1rem;
     border-top: 2px solid var(--Verde);
     font-size: 0.8rem;
+}
+#filmesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+.card{
+    background-color: var(--cinza-light);
+    width: 200px;
+    border-radius: 12px;
+   transition: 0.3s;
+   cursor: pointer;
+   position: relative;
+   overflow: hidden;
+}
+.card img{
+    width: 100%;
+}
+.card:hover{
+   transform:scale(1.1);
+}
+
+.card p{
+    max-height: 100%;
+    position: absolute;
+    overflow-y: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    color: white;
+    padding: 1rem;
+    font-size: 0.85rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+.card:hover p {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(0);
 }
