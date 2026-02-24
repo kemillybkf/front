@@ -47,6 +47,9 @@ function renderizarMidia(filmes) {
             <h3>${filme.name}</h3>
             <p>${filme.overview}</p>
         `;}
+        card.addEventListener("click", () => { 
+            window.location.href = `pages/detalhe.html?id=${filme.id}&type=${filme.media_type}`;
+        })
         filmesGrid.appendChild(card);
     });
     }

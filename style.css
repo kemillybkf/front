@@ -136,3 +136,28 @@ body{
     background-color: rgba(0, 0, 0, 0.7);
     transform: translateY(0);
 }
+.detalhes-card {
+   background-color: var(--cinza-light);
+   width: 1280px;
+   border-radius: 12px;
+   transition: 0.3s;
+   cursor: pointer;
+   position: relative;
+   overflow: hidden;
+   display: flex;
+}
+.detalhes-card img{
+  width: 30%; 
+  border-radius: 12px;
+  padding: 30px; 
+}
+.detalhes-info{
+    padding: 30px;
+    font-size: 20px;
+    max-height: 100%;
+    position: relative;
+    overflow-y: auto;
+    left: 0%;
+    right: 50%;
+    background: rgba(0, 0, 0, 0.5); 
+}
