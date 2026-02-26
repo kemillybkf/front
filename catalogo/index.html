@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KETFLIX</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"defer></script>
+</head>
+<body>
+  <div class="loader" id="loader">
+     <div class="spinner"></div>
+     <p>Aguarde, carregando informações...</p>
+  </div>
+  <header class="header">
+    <div class="container header-conteudo">
+        <h1 class="logo"><span>KETFLIX</span></h1>
+        <nav class="menu">
+            <a href="#"id="inicio">Inicio</a>
+            <a href="#"id="filmes">Filmes</a>
+            <a href="#"id="series">Série</a>
+        </nav>
+    </div>
+    
+  </header>
+    <main>
+        <section class="pesquisa-section">
+            <div class="container pesquisa-conteudo">
+                <input type="text" id="campoPesquisa" placeholder="Pesquisar por filme">
+                <button class="pesquisa-button" id="botaoPesquisa">
+                    <img src="assets/icones/lupa.jpg" alt="Pesquisar">
+                </button>
+            </div>
+        </section>
+        <section class="exibirFilmes-section">
+            <div class="filmesGrid" id="filmesGrid"></div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>Desenvolvido por Erik © 2026</p>
+    </footer>
+</body>
+</html>
