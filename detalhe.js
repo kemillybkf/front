@@ -1,3 +1,4 @@
+
 const API_KEY = "a3fda9b9d1d0aaee95df37313c16684e";
 const BASE_URL = "https://api.themoviedb.org/3";
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
@@ -49,3 +50,13 @@ function renderizarDetalhes(item){
     `;
 }
 document.addEventListener("DOMContentLoaded", carregarDetalhes);
+window.addEventListener("load", function (){
+    const loader = this.document.getElementById("loader");
+    if (loader){
+        loader.style.transition = "opacity 0.5 ease";
+        loader.style.opacity = "0";
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 500);
+    }
+});

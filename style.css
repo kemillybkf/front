@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
@@ -19,12 +20,21 @@ body{
     display: flex;
     flex-direction: column;
 }
+body.tema-claro{
+    --cinza-dark:#a3a3a3;
+    --cinza-light:rgb(37, 37, 37);
+    --branco:white;
+}
 .container{
     max-width: 1200px;
     margin: 0% auto;
     padding: 1rem;
 }
 .header{
+    background-color: var(--cinza-light);
+    border-bottom: 2px solid var(--Verde);
+}
+#botaoTema {
     background-color: var(--cinza-light);
     border-bottom: 2px solid var(--Verde);
 }
@@ -37,6 +47,31 @@ body{
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+}
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:  rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    flex-direction: column;
+}
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #444;
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
+}
+@keyframes girar{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 .logo {
     font-size: 1.8rem;
@@ -101,15 +136,16 @@ body{
     justify-content: center;
     gap: 2rem;
     padding: 2rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .card{
     background-color: var(--cinza-light);
     width: 200px;
     border-radius: 12px;
-   transition: 0.3s;
-   cursor: pointer;
-   position: relative;
-   overflow: hidden;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 .card img{
     width: 100%;
@@ -117,47 +153,34 @@ body{
 .card:hover{
    transform:scale(1.1);
 }
-
-.card p{
-    max-height: 100%;
-    position: absolute;
-    overflow-y: auto;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5); 
-    color: white;
-    padding: 1rem;
-    font-size: 0.85rem;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-}
-.card:hover p {
-    background-color: rgba(0, 0, 0, 0.7);
-    transform: translateY(0);
-}
 .detalhes-card {
-   background-color: var(--cinza-light);
-   width: 1280px;
-   border-radius: 12px;
-   transition: 0.3s;
-   cursor: pointer;
-   position: relative;
-   overflow: hidden;
-   display: flex;
+    width: 1335px;
+    border-radius: 12px;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
 }
 .detalhes-card img{
-  width: 30%; 
-  border-radius: 12px;
-  padding: 30px; 
+    width: 30%; 
+    border-radius: 35px;
+    padding: 30px; 
 }
 .detalhes-info{
+    width: 780px;
+    height: 570px;
+    position: relative;
     padding: 30px;
     font-size: 20px;
-    max-height: 100%;
-    position: relative;
-    overflow-y: auto;
-    left: 0%;
-    right: 50%;
-    background: rgba(0, 0, 0, 0.5); 
+}
+.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,12 +7,18 @@
     <title>Detalhe</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/detalhe.js"defer></script>
+    <script src="../js/global.js"defer></script>
 </head>
 <body>
+  <div class="loader" id="loader">
+     <div class="spinner"></div>
+     <p>Aguarde, carregando informações...</p>
+  </div>
   <header class="header">
     <div class="container header-conteudo">
         <h1 class="logo"><span>KETFLIX</span></h1>
         <nav class="menu">
+            <button id="botaoTema">Troca tema</button>
             <a href="#"id="inicio">Inicio</a>
             <a href="#"id="filmes">Filmes</a>
             <a href="#"id="series">Série</a>

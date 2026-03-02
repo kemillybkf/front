@@ -12,12 +12,20 @@ const series = document.getElementById('series');
 
 async function requisicaoURL(url) {
     try {
+        filmesGrid.classList.add("fade-out")
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error("Erro na requisição:");
         }
         const data = await response.json();
-        renderizarMidia(data.results);
+        setTimeout(() => {
+            renderizarMidia(data.results);
+            filmesGrid.classList.remove("fade-out");
+            filmesGrid.classList.add("fade-in");
+            setTimeout(() => {
+                filmesGrid.classList.remove("fade-in");             
+            }, 300);
+        }, 200);
     } catch (error) {
         console.error("Erro", error);
         filmesGrid.innerHTML = "<p>Erro ao carregar os filmes.</p>";
@@ -35,18 +43,22 @@ function renderizarMidia(filmes) {
         const image = filme.poster_path
         ? IMAGE_URL + filme.poster_path
         : "";
+
+    let media_type = "";
     if(filme.title){
         card.innerHTML = `
             <img src="${image}" alt="${filme.title}">
             <h3>${filme.title}</h3>
-            <p>${filme.overview}</p>
         `;
+        media_type = "movie"
     }else{
          card.innerHTML = `
             <img src="${image}" alt="${filme.name}">
             <h3>${filme.name}</h3>
-            <p>${filme.overview}</p>
-        `;}
+
+        `;
+         media_type = "tv"
+}
         card.addEventListener("click", () => { 
             window.location.href = `pages/detalhe.html?id=${filme.id}&type=${filme.media_type}`;
         })
@@ -87,3 +99,47 @@ function carregarTendenciasGeral(){
     const url = `${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=pt-BR`;
     requisicaoURL(url);
 }
+window.addEventListener("load", function (){
+    const loader = this.document.getElementById("loader");
+    if (loader){
+        loader.style.transition = "opacity 0.5 ease";
+        loader.style.opacity = "0";
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 500);
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const tipo = params.get("tipo");
+    if (tipo === "filme") {
+        buscaFilme();
+    } else if (tipo === "serie") {
+        buscaSerie();
+    } else {
+        carregarTendenciasGeral();
+    }
+    carregarGeneros();
+    document.getElementById("filtroGenero").addEventListener("change", filtrarPorGenero);
+});
+async function carregarGeneros(tipo = "movie"){
+    const response = await fetch(
+        `${BASE_URL}/genre/${tipo}/list?api_key=${API_KEY}&language=pt-BR`
+    );
+    const data = await response.json();
+    const select = document.getElementById("filtroGenero");
+    select.innerHTML = `<option value="">Todos</option>`;
+    data.genres.forEach(genero => {
+        const opition = document.createElement("option");
+        option.value = genero.id;
+        opition.textContent = genero.name;
+        select.appendChild(option);
+    });
+function filtrarPorGenero(){
+    if (!generoid){
+        carregarTendenciasGeral();
+        return;
+    }
+    const url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${generoid}language=pt-BR`;
+}}
